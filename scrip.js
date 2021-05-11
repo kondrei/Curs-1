@@ -1,3 +1,4 @@
+// 1.
 class AngajatiIT {
     constuctor(cnp, nume, prenume, vechime, departament) {
         this.cnp = cnp;
@@ -60,7 +61,7 @@ angajat.lucreza();
 
 let qaAngajat = new QA;
 qaAngajat.prenume = 'Ion'
-qaAngajat.cnp = 1800311244032;
+qaAngajat.cnp = 5000311244032;
 qaAngajat.afiseazaVarsta();
 qaAngajat.lucreaza();
 
@@ -69,3 +70,20 @@ develepoerAngajat.prenume = 'Vasile';
 develepoerAngajat.vechime = 5;
 develepoerAngajat.afișeazăAnulAngajarii();
 develepoerAngajat.lucreaza();
+
+
+// 2.
+const URL = 'https://randomuser.me/api/';
+
+async function getRandomUser() {
+    const result = await fetch(URL);
+    const convertJson = await result.json();
+    console.log(convertJson);
+    console.log(convertJson.results[0].picture.large);
+    console.log(convertJson.results[0].name.first, convertJson.results[0].name.last);
+    console.log(convertJson.results[0].gender);
+    console.log(convertJson.results[0].email);
+    console.log(convertJson.results[0].dob.age);
+}
+
+getRandomUser();
