@@ -48,7 +48,6 @@ class Developer extends AngajatiIT {
     }
 }
 
-
 let angajat = new AngajatiIT();
 angajat.cnp = 1800311244032;
 angajat.nume = 'Dan';
@@ -76,14 +75,46 @@ develepoerAngajat.lucreaza();
 const URL = 'https://randomuser.me/api/';
 
 async function getRandomUser() {
+    document.getElementById('loader').style.display = "inline";
     const result = await fetch(URL);
     const convertJson = await result.json();
-    console.log(convertJson);
-    console.log(convertJson.results[0].picture.large);
-    console.log(convertJson.results[0].name.first, convertJson.results[0].name.last);
-    console.log(convertJson.results[0].gender);
-    console.log(convertJson.results[0].email);
-    console.log(convertJson.results[0].dob.age);
+    document.getElementById("picture").setAttribute('src', convertJson.results[0].picture.large);
+    document.getElementById("name").innerHTML = '<strong>Name: </strong>' + convertJson.results[0].name.first + ' ' + convertJson.results[0].name.last;
+    document.getElementById("gender").innerHTML = '<strong>Gender: </strong>' + convertJson.results[0].gender;
+    document.getElementById("email").innerHTML = '<strong>email: </strong>' + convertJson.results[0].email;
+    document.getElementById("age").innerHTML = '<strong>Age: </strong>' + convertJson.results[0].dob.age;
+    document.getElementById('loader').style.display = "none";
 }
 
 getRandomUser();
+
+document.getElementById('generate').addEventListener('click', getRandomUser);
+
+// 3.
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const vanilla = [];
+for (let x = 0; x < arr.length; x++) {
+    vanilla[x] = arr[x] + arr[x] * 15;
+}
+
+console.log(`Vanilla  ${vanilla}`);
+
+
+const arrow = arr.forEach(element => {
+    console.log(`Arrow Function ${arr[element] + arr[element] * 15}`);
+});
+
+function elementOperations(element) {
+    return element + element * 15;
+}
+
+const arr2 = arr.map(elementOperations);
+
+console.log(`ES6  ${arr2}`);
+
+const newArray = [...arr];
+console.log(arr);
+
+console.log(arr.map(function (element) {
+    return element.toString() + element.toString();
+}));

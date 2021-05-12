@@ -1,0 +1,12 @@
+#user {
+
+    width: 90%;
+    border: 1px;
+    font-family: 'Helvetica';
+    padding: 24px;
+  }
+
+
+#loader {
+  position: fixed;
+}
