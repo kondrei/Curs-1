@@ -7,3 +7,5 @@
 ## Se dă un array cu numere de la 0 la 10
 * Parcurgeți array-ul și afișați fiecare număr adunat cu 15 * numărul respectiv ( pentru 2 se va afișa 32), folosind atat VanillaJS cât și arrow functions și iteratori specifici ES6.
 * Folosind destructuring copiați array-ul și modificați elementele astfel: 2 va deveni 22, 6 va deveni 66. Afișați ambele array-uri.
+
+See it in action [here](https://rawcdn.githack.com/kondrei/Curs-1/fc75d885e5b90a20273b2edd638a5f54a3c9a381/index.html)
