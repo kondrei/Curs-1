@@ -78,11 +78,13 @@ async function getRandomUser() {
     document.getElementById('loader').style.display = "inline";
     const result = await fetch(URL);
     const convertJson = await result.json();
-    document.getElementById("picture").setAttribute('src', convertJson.results[0].picture.large);
-    document.getElementById("name").innerHTML = '<strong>Name: </strong>' + convertJson.results[0].name.first + ' ' + convertJson.results[0].name.last;
-    document.getElementById("gender").innerHTML = '<strong>Gender: </strong>' + convertJson.results[0].gender;
-    document.getElementById("email").innerHTML = '<strong>email: </strong>' + convertJson.results[0].email;
-    document.getElementById("age").innerHTML = '<strong>Age: </strong>' + convertJson.results[0].dob.age;
+    const { email, picture, name, dob, gender } = convertJson.results[0];
+    console.log(email, picture.large, name.first, name.last, dob.age);
+    document.getElementById("picture").setAttribute('src', picture.large);
+    document.getElementById("name").innerHTML = '<strong>Name: </strong>' + name.first + ' ' + name.last;
+    document.getElementById("gender").innerHTML = '<strong>Gender: </strong>' + gender;
+    document.getElementById("email").innerHTML = '<strong>email: </strong>' + email;
+    document.getElementById("age").innerHTML = '<strong>Age: </strong>' + dob.age;
     document.getElementById('loader').style.display = "none";
 }
 
